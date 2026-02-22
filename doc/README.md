@@ -10,7 +10,49 @@ often better to read the code.
 Markdown files are written in a way that they can also be read in plain text.
 When modifying, please keep it that way!
 
-Here is a list with descriptions of relevant files:
+## Building the docs
+
+We use [mkdocs](https://www.mkdocs.org/) to build [lua_api.md](lua_api.md) into the HTML documentation available at <https://api.luanti.org/>.
+
+### Setup (one-time)
+
+The build script will automatically split `lua_api.md` by top-level sections and generate a `mkdocs.yml` configuration file.
+
+1. Navigate to the `mkdocs` folder:
+   ```sh
+   cd mkdocs
+   ```
+
+2. Create a Python virtual environment and install dependencies:
+   ```sh
+   python3 -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   pip install -r requirements.txt
+   ```
+
+### Building and previewing
+
+1. Activate the virtual environment:
+   ```sh
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
+
+2. Run the build script to generate the site:
+   ```sh
+   bash build.sh
+   ```
+
+3. (Optional) Preview the site locally with live reload:
+   ```sh
+   mkdocs serve
+   ```
+   Then open http://localhost:8000 in your browser.
+
+### Editing the API docs
+
+- Edit [lua_api.md](lua_api.md) directly
+- Top-level sections (lines starting with `=====`) become separate pages
+- Run `bash build.sh` to regenerate the site after making changes
 
 ## Server Modding
 
